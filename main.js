@@ -350,6 +350,8 @@ async function trainNn() {
     console.log(`hands up: ${correctHandsUp}, eyes covered: ${correctEyesCovered}, fake surprise: ${correctFakeSurprise}`);
     console.log(`Accuracy of the model is about ${accuracy * 100}%`);
 
+    // nn.save("poseDetection", () => console.log("model was saved!"));
+
 }
 
 async function testPose() {
