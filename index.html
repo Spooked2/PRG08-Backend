@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Data collection</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico">
+    <script src="https://unpkg.com/ml5@1/dist/ml5.min.js"></script>
+    <script type="module" src="./main.js" defer></script>
+</head>
+<body>
+
+<main>
+
+    <h1>Create pose data</h1>
+
+    <div id="webcamControls">
+
+        <button id="startWebcam">Start webcam</button>
+        <button id="stopWebcam">Stop webcam</button>
+        <button id="testDetection">Test detection</button>
+        <button id="saveData">Save data as json</button>
+
+    </div>
+
+    <div id="webcamContainer">
+
+        <video id="webcamElement" src="" muted autoplay playsinline></video>
+        <canvas id="landmarkOverlay"></canvas>
+
+    </div>
+
+    <div id="optionsContainer">
+
+        <h2>Select what pose to train</h2>
+
+        <div id="poseSelectContainer">
+
+            <Button id="handsUp" class="poseSelect">Hands up</Button>
+            <Button id="eyesCovered" class="poseSelect">Eyes covered</Button>
+            <Button id="fakeSurprise" class="poseSelect">Fake surprise</Button>
+
+        </div>
+
+    </div>
+
+</main>
+
+</body>
+</html>
