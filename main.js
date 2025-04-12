@@ -1,6 +1,7 @@
 //Imports
 import {FilesetResolver, PoseLandmarker, DrawingUtils} from '@mediapipe/tasks-vision';
-import poseData3 from './poseData3.json' assert {type: 'json'}
+import poseData3 from './data/poseData3.json' assert {type: 'json'}
+import poseData4 from './data/poseData4.json' assert {type: 'json'}
 
 //Wait for the window to load before doing anything
 window.addEventListener('load', init);
@@ -288,9 +289,23 @@ async function trainNn() {
 
     let poses = poseData3;
 
-    poses = poses.toSorted(() => (Math.random() - 0.5));
-    poses = poses.toSorted(() => (Math.random() - 0.5));
-    poses = poses.toSorted(() => (Math.random() - 0.5));
+    poses = poses.concat(poseData4);
+
+    let currentIndex = poses.length - 1;
+
+    while (currentIndex >= 0) {
+
+        const randomIndex = Math.floor(Math.random() * poses.length);
+
+        const poseA = poses[currentIndex];
+        const poseB = poses[randomIndex];
+
+        poses[randomIndex] = poseA;
+        poses[currentIndex] = poseB;
+
+        currentIndex--;
+
+    }
 
     const trainingData = poses.slice(0, Math.floor(poses.length * 0.8))
     const testingData = poses.slice(Math.floor(poses.length * 0.8) + 1)
